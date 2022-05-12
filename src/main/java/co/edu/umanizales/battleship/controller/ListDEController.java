@@ -1,6 +1,7 @@
 package co.edu.umanizales.battleship.controller;
 
 import co.edu.umanizales.battleship.model.NodeDE;
+import co.edu.umanizales.battleship.model.Ship;
 import co.edu.umanizales.battleship.model.ShipDistribution;
 import co.edu.umanizales.battleship.service.ListDEService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,14 @@ public class ListDEController
     }
 
     @PostMapping
-    public String createPet(@RequestBody ShipDistribution shipDistribution)
+    public String createShip(@RequestBody Ship ship)
     {
-        return listDeService.add(shipDistribution);
+        return listDeService.add(new ShipDistribution(ship));
     }
 
     @PostMapping(path="/tostart")
-    public String createPetToStart(@RequestBody ShipDistribution shipDistribution){
-        return listDeService.addToFirst(shipDistribution);
+    public String createShipToStart(@RequestBody Ship ship){
+        return listDeService.addToFirst(new ShipDistribution(ship));
     }
+
 }

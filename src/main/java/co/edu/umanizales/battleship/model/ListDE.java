@@ -2,6 +2,7 @@ package co.edu.umanizales.battleship.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,8 @@ public class ListDE {
         this.size++;
     }
 
-    public void addToFirst(ShipDistribution shipDistribution) {
+    public void addToFirst(ShipDistribution shipDistribution)
+    {
         if (this.head == null) {
             NodeDE newNode = new NodeDE(shipDistribution);
             this.head = newNode;
@@ -40,12 +42,24 @@ public class ListDE {
             this.head.setPrevious(newNode);
             this.head = newNode;
         }
-        this.size++;}
+        this.size++;
+    }
 
-    public List<ShipDistribution> list(){
+    public List<ShipDistribution> list()
+    {
         List<ShipDistribution> list= new ArrayList<>();
         //Recorre la listade y llenar la List
+        NodeDE temp = this.head;
+        while(temp != null)
+        {
+            list.add(temp.getData());
+            temp = temp.getNext();
+        }
         return list;
+    }
+    public Clone()
+    {
+
     }
 
 
