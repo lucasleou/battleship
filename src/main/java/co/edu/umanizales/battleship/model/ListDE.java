@@ -2,7 +2,6 @@ package co.edu.umanizales.battleship.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,30 +13,33 @@ public class ListDE {
     private int size;
 
     public void add(ShipDistribution shipDistribution) {
-        if (this.head == null) {
-            NodeDE newNode = new NodeDE(shipDistribution);
-            this.head = newNode;
+        shipDistribution.getShip().setId(this.size+1);
+        if(this.head == null)
+        {
+            this.head= new NodeDE(shipDistribution);
         }
-        else {
+        else{
             NodeDE temp = this.head;
-            while (temp.getNext() != null) {
+            while(temp.getNext() != null)
+            {
                 temp = temp.getNext();
             }
-            NodeDE newNode = new NodeDE(shipDistribution);
-            temp.setNext(newNode);
-            newNode.setPrevious(temp);
+            //Posicionado en el último
+            temp.setNext(new NodeDE(shipDistribution));
+            temp.getNext().setPrevious(temp);
         }
         this.size++;
     }
 
-    public void addToFirst(ShipDistribution shipDistribution)
-    {
-        if (this.head == null) {
-            NodeDE newNode = new NodeDE(shipDistribution);
-            this.head = newNode;
+    public void addToStart(ShipDistribution shipDistribution) {
+        shipDistribution.getShip().setId(this.size+1);
+        if(this.head == null)
+        {
+            this.head= new NodeDE(shipDistribution);
         }
-        else {
-            NodeDE newNode = new NodeDE(shipDistribution);
+        else
+        {
+            NodeDE newNode= new NodeDE(shipDistribution);
             newNode.setNext(this.head);
             this.head.setPrevious(newNode);
             this.head = newNode;
@@ -45,11 +47,10 @@ public class ListDE {
         this.size++;
     }
 
-    public List<ShipDistribution> list()
-    {
+    public List<ShipDistribution> listNodes(){
         List<ShipDistribution> list= new ArrayList<>();
         //Recorre la listade y llenar la List
-        NodeDE temp = this.head;
+        NodeDE temp= this.head;
         while(temp != null)
         {
             list.add(temp.getData());
@@ -57,9 +58,17 @@ public class ListDE {
         }
         return list;
     }
-    public Clone()
-    {
 
+    public ListDE clonelist()
+    {
+        ListDE listClone = new ListDE();
+        NodeDE temp = this.head;
+        while(temp != null)
+        {
+            listClone.add(temp.getData());
+            temp = temp.getNext();
+        }
+        return listClone;
     }
 
 
