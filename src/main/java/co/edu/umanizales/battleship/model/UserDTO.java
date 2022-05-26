@@ -5,8 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Coordenate {
-    private int x;
-    private int y;
-    private boolean state;
+public class UserDTO {
+    private String email;
+    private String typeUser;
 }

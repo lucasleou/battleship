@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Coordenate {
-    private int x;
-    private int y;
-    private boolean state;
+public class GenericResponse {
+    private int code;
+    private Object data;
+    private String errors;
 }

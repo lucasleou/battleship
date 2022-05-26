@@ -14,4 +14,18 @@ public class ShipDistribution {
         this.coordinates = new Coordenate[ship.getNumPlaces()];
         this.state="FREE";
     }
+
+    public boolean validateCoordinateExist(Coordenate coordinate)
+    {
+        if(this.orientation ==0)
+            return false;
+        for(Coordenate coord: this.coordinates)
+        {
+            if(coord.getX()==coordinate.getX() && coord.getY()==coordinate.getY() )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

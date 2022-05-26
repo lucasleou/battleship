@@ -59,10 +59,9 @@ public class ListDE {
         return list;
     }
 
-    public ListDE clonelist()
-    {
+    public ListDE cloneList(){
         ListDE listClone = new ListDE();
-        NodeDE temp = this.head;
+        NodeDE temp= this.head;
         while(temp != null)
         {
             listClone.add(temp.getData());
@@ -71,5 +70,21 @@ public class ListDE {
         return listClone;
     }
 
+    public boolean validateCoordinatesExist(Coordenate[] coordinates)
+    {
+        NodeDE temp = this.head;
+        while(temp!=null)
+        {
+            for(Coordenate coord: coordinates)
+            {
+                if(temp.getData().validateCoordinateExist(coord))
+                {
+                    return true;
+                }
+            }
+            temp= temp.getNext();
+        }
+        return false;
+    }
 
 }
