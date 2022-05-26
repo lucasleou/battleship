@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class Ship {
-    private int id;
+    private int id; //Se va a hacer autonumerico
     private String name;
-    private byte numPlaces;
+    private byte numberPlaces;
 
-    public Ship(String name, byte numPlaces) {
+    public Ship(String name, byte numberPlaces) {
         this.name = name;
-        this.numPlaces = numPlaces;
+        this.numberPlaces = numberPlaces;
     }
 }

@@ -11,17 +11,18 @@ public class ShipDistribution {
 
     public ShipDistribution(Ship ship) {
         this.ship = ship;
-        this.coordinates = new Coordenate[ship.getNumPlaces()];
-        this.state="FREE";
+        this.coordinates = new Coordenate[ship.getNumberPlaces()];
+        this.state = "FREE";
     }
 
-    public boolean validateCoordinateExist(Coordenate coordinate)
+    //no se recorre cuando orientacion este en cero
+    public boolean validateCoordinateExist(Coordenate coordenate)
     {
         if(this.orientation ==0)
             return false;
         for(Coordenate coord: this.coordinates)
         {
-            if(coord.getX()==coordinate.getX() && coord.getY()==coordinate.getY() )
+            if(coord.getX()==coordenate.getX() && coord.getY()==coordenate.getY() )
             {
                 return true;
             }

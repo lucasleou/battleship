@@ -23,8 +23,7 @@ public class UserController {
     public ResponseEntity<GenericResponse> getUsers()
     {
         return new ResponseEntity<GenericResponse>(
-                new GenericResponse(200,userService.listUsers(),null),
-                HttpStatus.OK
+                new GenericResponse(200,userService.listUsers(),null),HttpStatus.OK
         );
     }
 
